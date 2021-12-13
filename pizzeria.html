@@ -1,0 +1,23 @@
+<body>
+    <div id='ruffle'></div>
+
+    <b>Notice: </b><em>The site is minimalistic, so that way some games can load in.</em>
+</body>
+
+<script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("ruffle");
+        container.appendChild(player);
+        player.load({
+            url: "https://javier164.github.io/swf/pizzeria.swf",
+            backgroundColor: "#000",
+        });
+        player.style.width = "450px";
+        player.style.height = "450px";
+    });
+</script>
+
+<script src="js/ruffle.js"></script>

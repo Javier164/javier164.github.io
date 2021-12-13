@@ -3,7 +3,7 @@
     1. you accidentally pressed Ctrl + U and now you can view the source of the site, congrats.
     2. ur super cool and are an aspiring technologist like me <3
 
-    enjoy the show i guess
+    enjoy the show i guess... again.
     https://twitter.com/JavierZ_06
 -->
 
@@ -31,11 +31,6 @@
 
         <!-- some css framework tysm bootswatch -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <style>
-            .text-invisible {
-               color: grey; 
-            }
-        </style>
     </head>
 
     <body>
@@ -48,7 +43,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         
                         <li class="nav-item">
@@ -56,7 +51,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/about.html">About</a>
+                            <a class="nav-link active" href="#">About</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -90,39 +85,23 @@
         </div>
 
         <div class="container">
-            <div class="alert alert-dismissible alert-warning">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <h4 class="alert-heading">Warning!</h4>
-                <p class="mb-0">About half of the crap here is under development, and is most likely not out yet. <a href="#">Click here</a> to learn more.</p>
-            </div>   
-            <h1>Home <small class="text-muted h6">main page</small></h1>
-            <div class="card text-white bg-dark mb-3">
-            <div class="card-header">Information</div>
-            <div class="card-body">
-                <h5 class="card-title">Welcome!</h5>
-                <p class="card-text">
-                    This is a work of art isn't it? Check out my socials in the top right corner if you wanna get in contact with me, or in the <b>About</b> section.
-                    Otherwise... a bit more about me. This contradicts the point of the About section, so I'll just give you my name and my favorite color.<br><br>
-                    My name is Javier and my favorite color is that weird in between with purple and blue. I hope you know what I'm talking about.<br><br>
+            <h1>About <small class="text-muted h6">who am i?</small></h1>
+            <p>
+                here's a few neat things i'd think you'd wanna know about me.<br><br>
 
-                    Since FontAwesome's Discord logo is being really weird with this theme specifically, I guess I'll just have to give you guys my Discord right here, at <em>Javier06#0001</em>.<br><br>
-                    Speaking of Discord, If you add me; here's a good guide to see if I'm available.<br><br>
-                    If I'm on <span class="text-success">Online</span>, this is a good time to talk with me. I'm not doing anything at all and will have a high chance of responding to your messages.<br>
-                    If I'm on <span class="text-danger">Do Not Disturb</span>, this means I'm working on a certain project. This may also mean I'm not in a good mood. Long story short, unless the site is breaking down (do not complain with older browsers please) do not message me on Do Not Disturb.<br>
-                    If I'm on <span class="text-warning">Idle</span>, this is a rare occurence. I might've been online and left my computer idle. Good chance I won't respond if I'm <b>not</b> using my phone.<br>
-                    If I'm on <span class="text-invisible">Invisible/Offline</span>, 99% of the time I am not on Discord. This leads to a lot of reasons as to why I cannot be on the platform, just assume I'm learning something or whatever.<br><br>
-                    
-                    If you read up to this point, congratulations! I'm stopping it here. Go to the about section to read more about me, and the purpose of this site in general.
-                </p>
-            </div>
+                <b>name</b>: javier<br>
+                <b>age</b>: 14<br>
+                <b>interests</b>: video games, electronics, sports, graphic design, etc..<br>
+                <b>pronouns</b>: he/him/they/them<br><br>
+                
+                listen. for some of you that may already know me and for others that don't, this may seem very generic or samey. i assure you this isn't the case.<br>
+                if you get to know me, i'm actually really kind and sweet. so what are ya waiting for? talk to me. i don't bite. <br><br>
+
+                random fun fact: it is almost 10 in the afternoon as i am typing this, help me.
+
+            </p>
         </div>
-         
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/924f2c2704.js" crossorigin="anonymous"></script>
-
-        <script>
-            // The following credit goes to https://gist.github.com/nestoralvaro/1597163, as JavaScript is mentally and physically exhausting. I minified this for simplicity.
-            function konamiIsDetected(){new Audio("sans.mp3").play()}!function(){"use strict";var e,n,t,o=[38,38,40,40,37,39,37,39,66,65],d=[];function i(e){var n,t,s,a=e||window.event,r=a.keyCode?a.keyCode:a.which,v=!0;if(d.push(r),d.length<o.length){for(var h=0,c=d.length;h<c;h++)d[h]!==o[h]&&(v=!1);v||(d=[]).push(r)}else if(d.length===o.length){var l=0;for(c=d.length;l<c;l++)d[l]!==o[l]&&(v=!1);d=[],v&&(n=document,t="keydown",s=i,n.removeEventListener?n.removeEventListener(t,s,!1):n.detachEvent("on"+t,s),konamiIsDetected())}else d=[]}e=document,n="keydown",t=i,e.addEventListener?e.addEventListener(n,t,!1):e.attachEvent("on"+n,t)}();
-        </script>
     </body>
-</html>
