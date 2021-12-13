@@ -9,12 +9,10 @@
     window.addEventListener("load", (event) => {
         const ruffle = window.RufflePlayer.newest();
         const player = ruffle.createPlayer();
-        const container = document.getElementById("ruffle");
+        const container = document.getElementById("container");
         container.appendChild(player);
-        player.load("https://javier164.github.io/swf/pizzeria.swf");
+        player.load("swf/pizzeria.swf");
     });
-
-
 </script>
 
 <script src="js/ruffle.js"></script>
