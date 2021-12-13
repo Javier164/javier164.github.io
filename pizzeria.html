@@ -9,7 +9,7 @@
     window.addEventListener("load", (event) => {
         const ruffle = window.RufflePlayer.newest();
         const player = ruffle.createPlayer();
-        const container = document.getElementById("container");
+        const container = document.getElementById("ruffle");
         container.appendChild(player);
         player.load("https://javier164.github.io/swf/pizzeria.swf");
     });
