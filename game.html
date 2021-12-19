@@ -1,0 +1,42 @@
+<script>
+    function init() 
+    {
+        document.writeln("Loading game...");
+
+        let script = document.createElement('script');
+        script.src = "js/jquery-3.6.0.min.js";
+
+        document.head.appendChild(script); 
+        script.addEventListener('load', function() {
+            console.log(`${script.src} has been loaded.`);
+        });
+
+        function parseURL(url) 
+        {   
+            let pURL = new URL(url.search);
+            let param = URLSearchParams.new(pURL);
+            if (param.has('flash')) 
+            {
+                let script = document.createElement('script');
+                script.src = "js/ruffle.js";
+
+                document.head.appendChild(script);
+
+                script.addEventListener('load', function() {
+                    console.log("If you can see this, then you probably know web design like if it's the back of your heart. Regardless, don't mess with anything JavaScript related in the developer console unless you know what you are doing. Thank you :)");
+                    console.log(`${script.src} has been loaded.`);
+                }); 
+            }
+
+            if (param.has('game')) 
+            {
+                let game = params.get("game");   
+            }
+        }
+
+        init.parseURL = parseURL;
+    }
+
+    init();
+    init.parseURL("https://javier164.github.io");
+</script>
