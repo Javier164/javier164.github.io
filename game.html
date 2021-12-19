@@ -1,42 +1,127 @@
-<script>
-    function init() 
-    {
-        document.writeln("Loading game...");
+<html>
+    <head>
+        <style type="text/css">
+            #main {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 5 5 5 5;
+                padding: 5 5 5 5;
+            }
+    
+            ruffle-player {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
 
-        let script = document.createElement('script');
-        script.src = "js/jquery-3.6.0.min.js";
+    <body id="main">
+        <div id="ruffle"></div><br>
+        <div id="error"></div><br>
+        <b>Notice: </b><em>I amalgamated the pages into one, for less clutter and more efficiency. <br>
+        Please note, there are problems with some games due to Ruffle still being in it's infancy. Check out <a target="_blank" href="https://ruffle.rs/#compatibility">over here</a> for updates on the library.</em>        
+    </body>
+    
+    <script>
+        // WITH THE POWER OF JAVASCRIPT, YOU CAN DO ALMOST ANYTHING.
 
-        document.head.appendChild(script); 
-        script.addEventListener('load', function() {
-            console.log(`${script.src} has been loaded.`);
-        });
+        /*
+            This took me about a couple hours to do within the span of a couple (not simutaneous) sessions. This is done to prevent clutter for the main repository of GitHub pages.
+            There will still be a fuckton of SWF's in the SWF folder, although now it's easier to drag and drop games now.
+            The URL is styled like so. https://javier164.github.io/game.html?file={file name of swf here, no extension}&flash=true. I made it like this only for Flash games, and not any upcoming HTML5 games.
+        */
 
-        function parseURL(url) 
-        {   
-            let pURL = new URL(url.search);
-            let param = URLSearchParams.new(pURL);
-            if (param.has('flash')) 
-            {
-                let script = document.createElement('script');
-                script.src = "js/ruffle.js";
-
-                document.head.appendChild(script);
-
-                script.addEventListener('load', function() {
-                    console.log("If you can see this, then you probably know web design like if it's the back of your heart. Regardless, don't mess with anything JavaScript related in the developer console unless you know what you are doing. Thank you :)");
-                    console.log(`${script.src} has been loaded.`);
-                }); 
+        function init() 
+        {          
+            function HandleError(message) {
+                const error = new Error(message);
+                return error;
             }
 
-            if (param.has('game')) 
-            {
-                let game = params.get("game");   
+            script = document.createElement('script');
+            param = new URLSearchParams(document.location.search.substring(1));
+            game = param.get('game');
+            flash = param.get('flash');
+
+            HandleError.prototype = Object.create(Error.prototype);
+            
+            function parseURL() 
+            {   
+                try 
+                {
+                    if (param.has('flash')) 
+                    {
+                        if (flash === 'true') 
+                        {
+                            if (game != null)
+                            {
+                                let script = document.createElement('script');
+                                script.src = "js/ruffle.js";
+                
+                                document.head.appendChild(script);
+                            } 
+                        } else {
+                            throw new HandleError("The Flash parameter is invalid, or is set to false.");
+                        }
+                    }
+                }
+
+                catch (err) 
+                {
+                    document.getElementById("error").innerHTML = `Error: ${err.message}`;
+                }
+ 
+                finally 
+                {
+                    script.addEventListener('load', function() 
+                    {
+                        console.log("If you can see this, then you probably know web design like if it's the back of your heart. Regardless, don't mess with anything JavaScript related in the developer console unless you know what you are doing. Thank you :)");
+                        console.log('All of the scripts have been loaded.');
+                    }); 
+                }
+    
             }
+
+            function loadFlash() 
+            {
+                try 
+                {   
+                    if (game == null || 
+                        game == undefined || 
+                        flash == null || 
+                        flash == undefined) 
+                    {
+                        throw new HandleError("The game or flash parameter is missing from the URL.");
+                    } 
+                }
+
+                catch (err) 
+                {
+                    document.getElementById("error").innerHTML = `Error: ${err.message}`;
+                    exit(0);
+                }
+
+                finally 
+                {
+                    window.RufflePlayer = window.RufflePlayer || {};
+                    window.addEventListener("load", (event) => 
+                    {
+                        const ruffle = window.RufflePlayer.newest();
+                        const player = ruffle.createPlayer();
+                        const container = document.getElementById("ruffle");
+                        container.appendChild(player);
+                        player.load(`swf/${game}.swf`);
+                    });
+
+                    return true;
+                }
+            }
+
+            init.parseURL = parseURL;
+            init.loadFlash = loadFlash;
         }
 
-        init.parseURL = parseURL;
-    }
+        init();
+        init.parseURL();
+        init.loadFlash();
+    </script>
+</html>
 
-    init();
-    init.parseURL("https://javier164.github.io");
-</script>
