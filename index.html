@@ -67,7 +67,8 @@
                                 <a class="dropdown-item" href="/game.html?game=smash.swf">Super Smash Flash!</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/game.html?game=prison.swf">Escaping the Prison</a>
-                                <a class="dropdown-item" href="/game.html?game=diamond.swf">Stealing the Diamond</a>
+                                <a class="dropdown-item" href="/game.html?game=diamond.swf">Stealing the Diamond <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="May freeze or take long to load.">Warning</span></a>
+                                <a class="dropdown-item" href="/game.html?game=complex.swf">Fleeing the Complex <span class="badge rounded-pill bg-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="May freeze or take long to load.">Warning</span></a>
                             </div>                        
                         </li>
                     </ul>
@@ -128,6 +129,11 @@
         <script>
             // The following credit goes to https://gist.github.com/nestoralvaro/1597163, as JavaScript is mentally and physically exhausting. I minified this for simplicity.
             function konamiIsDetected(){new Audio("sans.mp3").play()}!function(){"use strict";var e,n,t,o=[38,38,40,40,37,39,37,39,66,65],d=[];function i(e){var n,t,s,a=e||window.event,r=a.keyCode?a.keyCode:a.which,v=!0;if(d.push(r),d.length<o.length){for(var h=0,c=d.length;h<c;h++)d[h]!==o[h]&&(v=!1);v||(d=[]).push(r)}else if(d.length===o.length){var l=0;for(c=d.length;l<c;l++)d[l]!==o[l]&&(v=!1);d=[],v&&(n=document,t="keydown",s=i,n.removeEventListener?n.removeEventListener(t,s,!1):n.detachEvent("on"+t,s),konamiIsDetected())}else d=[]}e=document,n="keydown",t=i,e.addEventListener?e.addEventListener(n,t,!1):e.attachEvent("on"+n,t)}();
+            
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
         </script>
     </body>
 </html>
