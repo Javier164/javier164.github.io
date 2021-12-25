@@ -6,122 +6,21 @@
                 margin: 5 5 5 5;
                 padding: 5 5 5 5;
             }
-    
-            ruffle-player {
+
+            ruffle-object {
                 border: 1px solid black;
             }
         </style>
+
+        <script src="js/jquery-3.6.0.min.js"></script>
     </head>
 
     <body id="main">
-        <div id="ruffle"></div><br>
-        <div id="error"></div><br>
-        <b>Notice: </b><em>I amalgamated the pages into one, for less clutter and more efficiency. <br>
-        Please note, there are problems with some games due to Ruffle still being in it's infancy. Check out <a target="_blank" href="https://ruffle.rs/#compatibility">over here</a> for updates on the library.</em>        
+        <div></div>
     </body>
-    
+
     <script>
-        // WITH THE POWER OF JAVASCRIPT, YOU CAN DO ALMOST ANYTHING.
-
-        /*
-            This took me about a couple hours to do within the span of a couple (not simutaneous) sessions. This is done to prevent clutter for the main repository of GitHub pages.
-            There will still be a fuckton of SWF's in the SWF folder, although now it's easier to drag and drop games now.
-            The URL is styled like so. https://javier164.github.io/game.html?file={file name of swf here, no extension}&flash=true. I made it like this only for Flash games, and not any upcoming HTML5 games.
-        */
-
-        function init() 
-        {          
-            function HandleError(message) {
-                const error = new Error(message);
-                return error;
-            }
-
-            script = document.createElement('script');
-            param = new URLSearchParams(document.location.search.substring(1));
-            game = param.get('game');
-            flash = param.get('flash');
-
-            HandleError.prototype = Object.create(Error.prototype);
-            
-            function parseURL() 
-            {   
-                try 
-                {
-                    if (param.has('flash')) 
-                    {
-                        if (flash === 'true') 
-                        {
-                            if (game != null)
-                            {
-                                let script = document.createElement('script');
-                                script.src = "js/ruffle.js";
-                
-                                document.head.appendChild(script);
-                            } 
-                        } else {
-                            throw new HandleError("The Flash parameter is invalid, or is set to false.");
-                        }
-                    }
-                }
-
-                catch (err) 
-                {
-                    document.getElementById("error").innerHTML = `Error: ${err.message}`;
-                }
- 
-                finally 
-                {
-                    script.addEventListener('load', function() 
-                    {
-                        console.log("If you can see this, then you probably know web design like if it's the back of your heart. Regardless, don't mess with anything JavaScript related in the developer console unless you know what you are doing. Thank you :)");
-                        console.log('All of the scripts have been loaded.');
-                    }); 
-                }
-    
-            }
-
-            function loadFlash() 
-            {
-                try 
-                {   
-                    if (game == null || 
-                        game == undefined || 
-                        flash == null || 
-                        flash == undefined) 
-                    {
-                        throw new HandleError("The game or flash parameter is missing from the URL.");
-                    } 
-                }
-
-                catch (err) 
-                {
-                    document.getElementById("error").innerHTML = `Error: ${err.message}`;
-                    exit(0);
-                }
-
-                finally 
-                {
-                    window.RufflePlayer = window.RufflePlayer || {};
-                    window.addEventListener("load", (event) => 
-                    {
-                        const ruffle = window.RufflePlayer.newest();
-                        const player = ruffle.createPlayer();
-                        const container = document.getElementById("ruffle");
-                        container.appendChild(player);
-                        player.load(`swf/${game}.swf`);
-                    });
-
-                    return true;
-                }
-            }
-
-            init.parseURL = parseURL;
-            init.loadFlash = loadFlash;
-        }
-
-        init();
-        init.parseURL();
-        init.loadFlash();
+        $.param=function(e){var t=new RegExp("[?&]"+e+"=([^&#]*)").exec(window.location.search);return t?decodeURI(t[1]):null},$(document).ready(function(){$("div").append(`<object data="/swf/${$.param("game")}"></object>`);const e={method:"GET",mode:"cors",cache:"default"};if(!$.param("game").match("^.*.(swf)$"))throw new Error("The extension is missing from the file. Please add .swf to the end of the game name.");{let t=new Request(`/swf/${$.param("game")}`);fetch(t,e).then(function(e){if(e.ok){if("application/x-shockwave-flash"!=e.headers.get("Content-Type"))throw new Error("Not a valid flash file, please contact Javier06#0001 as soon as possible.");{console.log("Flash file is valid, loading Ruffle...");let e=document.createElement("script");e.src="js/ruffle.js",document.head.appendChild(e)}}else switch(e.status){case 400:throw new Error("This probably was caused due to a malformed URL or Request. Stop typing random shit into the URL.");case 403:throw new Error("What... Just contact me on Discord and explain how you have done this.");case 404:throw new Error(`Stop trying to look for games that don't exist. If you really want ${$.param("game")}, contact me at Discord.`);case 500:throw new Error("Definitely something on GitHub's end.");default:throw new Error("...")}})}});
     </script>
 </html>
 
