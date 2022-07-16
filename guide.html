@@ -298,12 +298,20 @@ This should be used with caution, and with the ability to follow directions, you
 
 <p>Open a terminal and paste the following. <code>WINEARCH=win32 WINEPREFIX=&quot;/path/to/prefix/&quot; winecfg</code><br>
 Set the Windows version to Windows XP. Then after setting that, paste the following into a terminal. <code>winetricks corefonts fontfix dotnet20 dotnet30 tahoma msxml3 msxml6 directmusic directplay quicktime76 vcrun2005 vcrun2008 vcrun2010 quartz</code></p>
+<p>Get the Vegas 10.0 32-bit installer over <a href="https://www.mediafire.com/file/wwehzkbs66spoml/vegas100_32bit.exe/file">here</a>.</p>
 <h4 class="mume-header" id="if-installing-vegas-pro-11">If installing Vegas Pro 11...</h4>
 
 <p>Open a terminal and paste the following. <code>WINEARCH=win32 WINEPREFIX=&quot;/path/to/prefix/&quot; winecfg</code><br>
-Set the Windows version to Windows Vista. Then after setting that, paste the following into a terminal. <code>winetricks corefonts fontfix dotnet20 dotnet30 dotnet35 tahoma msxml3 msxml6 directmusic directplay quicktime76 vcrun2005 vcrun2008 vcrun2010 vcrun2012 quartz</code></p>
-<p>The respective versions are available <a href="https://www.mediafire.com/folder/u9a5xo663zlx8/Vegas">here</a>, with cracks.<br>
-Make sure to get keys.tar.gz, use key2.exe, and to disable any antivirus within your operating systems.</p>
+Set the Windows version to Windows Vista. Then after setting that, paste the following into a terminal. <code>winetricks corefonts fontfix dotnet20 dotnet30 dotnet35 dotnet35sp1 tahoma msxml3 msxml6 directmusic directplay quicktime76 vcrun2005 vcrun2008 vcrun2010 vcrun2012 quartz</code></p>
+<p>Get the Vegas 11.0 32-bit installer over <a href="https://www.mediafire.com/file/bvlfcc7gmw1gtkj/vegas110_32bit.exe/file">here</a>.</p>
+<p>Note, the installation of dependencies may take a while. Entertain yourself if needed.</p>
+<h3 class="mume-header" id="step-2-cracking-vegas-pro">Step 2: Cracking Vegas Pro</h3>
+
+<p>To crack Vegas, install it first. Then make sure to get keys.tar.gz and to use key2.exe. Launch it, patch Vegas and generate the keys needed. Follow along with the installation and when prompted, provide the necessary keys.</p>
+<h2 class="mume-header" id="necessary-fixes">Necessary Fixes</h2>
+
+<p><strong>ErrorReportConfig.xml</strong>: <strong>Before launching Vegas Pro</strong>, open ErrorReportConfig.xml (located in <code>/path/to/prefix/drive_c/Program Files/Sony/Vegas Pro 10.0/ErrorReportConfig.xml</code>) set the <code>enabled</code> tag to <code>no</code>, Vegas error report crashes Wine.</p>
+<p><strong>FileIOSurrogate.exe</strong>: Open the Wine Task Manager, and hang the process. If that doesn&apos;t work, restart Vegas Pro. Relocating, launching, then replacing the file with the aforementioned file may fix the issue.</p>
 
       </div>
       
