@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content="Javier Zayas" />
+        <meta name="description" content="Javier Zayas' Digital Portfolio" />
+        <title>Javier Zayas</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="#">Home &#x1F3E0;</a></li>
+                <li><a href="#resume">Resume</a> &#x1F4DC;</li>
+                <li><a href="#work-samples">Work Samples &#x1F9D1;&#x200D;&#x1F4BC;</a></li>
+                <li>Certifications &#x1F468;&#x200D;&#x1F393;</li>
+                <li id="mode-toggle">&#x1F31D;</li>
+            </ul>
+        </nav>
+
+        <section id="main">
+            <h1 class="header">Javier J. Zayas</h1>
+            <p id="description">
+                I am a 16 year old student attending Greater Lowell Technical High School studying Information Technology Services.<br><br>
+                My intention for you after visiting this website is to gain more knowledge on who I am, what I do, and how I do it.
+            </p>
+        </section>
+
+        <section id="resume">
+            <h1 class="header">Resume</h1>
+            <img src="img/resume.png">
+        </section>
+
+        <section id="work-samples">
+            <h1 class="header">Work Samples</h1>
+            <section class="sample" id="canarium">
+                <img src="img/canarium.png" alt="" srcset="">
+                <a href="https://github.com/Javier164/Canarium">Canarium</a>
+            </section>
+            <section class="sample" id="canarium">
+                <img src="img/canarium.png" alt="" srcset="">
+                <a href="https://github.com/Javier164/Canarium">Canarium</a>
+            </section>
+            <section class="sample" id="canarium">
+                <img src="img/canarium.png" alt="" srcset="">
+                <a href="https://github.com/Javier164/Canarium">Canarium</a>
+            </section>
+        </section>
+
+        <footer id="footer"></footer>
+
+        <script>
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.className = "dark-mode";
+                element.innerHTML = "🌞";
+            }
+
+            var element = document.getElementById("mode-toggle");
+            
+            element.addEventListener("click", function() {
+                document.body.classList.toggle("dark-mode");
+                if (element.innerHTML === "🌝") {
+                    element.innerHTML = "🌞";
+                } else {
+                    element.innerHTML = "🌝";
+                }
+            });
+
+            document.getElementById("footer").innerHTML = "&copy; " + new Date().getFullYear() + " Javier Zayas";
+        </script>
+    </body>
+</html>
