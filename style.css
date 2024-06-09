@@ -1,0 +1,116 @@
+:root {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background:
+        linear-gradient(135deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
+        linear-gradient(225deg, #708090 21px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
+    background-color: #708090;
+    background-size: 64px 128px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    color: white;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25em;
+    margin: 0;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1em;
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0.75em;
+    background-color: rgb(55, 55, 55);
+    color: white;
+    text-align: center;
+}
+
+header,
+footer {
+    box-shadow: 0px 0px 6px black;
+    background-color: rgb(55, 55, 55);
+}
+
+header h3 {
+    margin: 0 !important;
+    padding-top: 16px;
+    color: white;
+    text-align: center;
+}
+
+li.active a {
+    color: rgb(236, 212, 236);
+}
+
+li.active a:hover {
+    color: rgb(241, 227, 241);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(226, 226, 226);
+}
+
+article h1,
+article p {
+    margin: 0;
+}
+
+article {
+    margin: 8px 0;
+}
+
+main {
+    padding: 1%;
+    margin: 1em;
+    background: rgba(74, 38, 174, 0.25);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+}
+
+main#certificates {
+    display: flex;
+    padding: 1%;
+    margin: 1em;
+    background: white !important;
+    color: black;
+    justify-content: center;
+    gap: 32px;
+}
+
+main#certificates > article {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+figure img {
+    border: thin solid black;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.30);
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-flow: column wrap;
+    }
+}
